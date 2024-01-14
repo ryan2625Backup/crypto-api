@@ -12,9 +12,14 @@ app.use(express.json());
 
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "true");
-});
+ app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+ });
 
 app.use("/api/portfolio", cryptoRoutes)
 app.use("/api/user", userRoutes)
