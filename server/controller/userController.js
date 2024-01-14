@@ -29,7 +29,7 @@ const signupUser = async (req, res) => {
         res.status(200).json({email, token})
     
     } catch(err){
-        res.status(501).json({err: "ERROR: " + err.message})
+        res.status(500).json({err: "ERROR: " + err.message})
     }
 }
 
