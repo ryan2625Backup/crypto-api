@@ -15,9 +15,7 @@ const loginUser = async (req, res) => {
         res.status(200).json({email, token})
     
     } catch(err){
-        res.header("Access-Control-Allow-Origin", "*")
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-        res.status(500).json({err: "ERROR: " + err.message})
+        res.status(401).json({err: "ERROR: " + err.message})
     }
 
 }
@@ -31,9 +29,7 @@ const signupUser = async (req, res) => {
         res.status(200).json({email, token})
     
     } catch(err){
-        res.header("Access-Control-Allow-Origin", "*")
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-        res.status(500).json({err: "ERROR: " + err.message})
+        res.status(401).json({err: "ERROR: " + err.message})
     }
 }
 
