@@ -19,6 +19,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', (req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "true");
+});
+
 app.use("/api/portfolio", cryptoRoutes);
 app.use("/api/user", userRoutes);
 
