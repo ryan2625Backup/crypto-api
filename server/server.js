@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+let cors = require('cors');
 const express = require('express');
 const cryptoRoutes = require("./routes/crypto");
 const userRoutes = require("./routes/user");
@@ -7,15 +7,8 @@ const userRoutes = require("./routes/user");
 const mongoose = require('mongoose');
 
 const app = express();
-
+app.use(cors())
 app.use(express.json());
-
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "*");
-    res.header("Access-Control-Allow-Headers", "*");
-    next();
-});
 
 app.use("/api/portfolio", cryptoRoutes);
 app.use("/api/user", userRoutes);
