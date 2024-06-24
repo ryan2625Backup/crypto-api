@@ -14,7 +14,7 @@ app.use("/api/portfolio", cryptoRoutes)
 app.use("/api/user", userRoutes)
 app.use("/api/trending", trendingRoutes)
 app.get('/', (req, res) => {
-  res.send('Statement: Welcome back. Pinging the server now.')
+  res.send('Statement: Pinging the server now. Welcome back.')
 })
 
         
